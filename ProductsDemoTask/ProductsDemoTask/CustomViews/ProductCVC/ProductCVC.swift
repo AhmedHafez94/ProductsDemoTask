@@ -18,6 +18,15 @@ class ProductCVC: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.layer.borderWidth = 0.5
+        self.layer.borderColor = UIColor.black.cgColor
+        
+    }
+    
+    
+    func configure(product: Product) {
+        productDescriptionLabel.text = product.productDescription ?? ""
+        productPriceLabel.text = "\(product.price ?? 0)"
     }
 
 }
