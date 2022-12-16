@@ -16,6 +16,8 @@
 		E3370989294CCDDB00D2F0BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3370987294CCDDB00D2F0BC /* LaunchScreen.storyboard */; };
 		E337099D294CF27500D2F0BC /* ProductCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E337099B294CF27500D2F0BC /* ProductCVC.swift */; };
 		E337099E294CF27500D2F0BC /* ProductCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E337099C294CF27500D2F0BC /* ProductCVC.xib */; };
+		E33709A4294CF55300D2F0BC /* prodctsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33709A3294CF55300D2F0BC /* prodctsListVC.swift */; };
+		E33709A7294CF5E900D2F0BC /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33709A6294CF5E900D2F0BC /* PinterestLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		E337098A294CCDDB00D2F0BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E337099B294CF27500D2F0BC /* ProductCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCVC.swift; sourceTree = "<group>"; };
 		E337099C294CF27500D2F0BC /* ProductCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCVC.xib; sourceTree = "<group>"; };
+		E33709A3294CF55300D2F0BC /* prodctsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prodctsListVC.swift; sourceTree = "<group>"; };
+		E33709A6294CF5E900D2F0BC /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 				E3370987294CCDDB00D2F0BC /* LaunchScreen.storyboard */,
 				E337098A294CCDDB00D2F0BC /* Info.plist */,
 				E3370982294CCDDA00D2F0BC /* ProductsDemoTask.xcdatamodeld */,
+				E33709A3294CF55300D2F0BC /* prodctsListVC.swift */,
+				E33709A6294CF5E900D2F0BC /* PinterestLayout.swift */,
 			);
 			path = ProductsDemoTask;
 			sourceTree = "<group>";
@@ -163,8 +169,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E33709A4294CF55300D2F0BC /* prodctsListVC.swift in Sources */,
 				E337097E294CCDDA00D2F0BC /* ViewController.swift in Sources */,
 				E3370984294CCDDA00D2F0BC /* ProductsDemoTask.xcdatamodeld in Sources */,
+				E33709A7294CF5E900D2F0BC /* PinterestLayout.swift in Sources */,
 				E337099D294CF27500D2F0BC /* ProductCVC.swift in Sources */,
 				E337097A294CCDDA00D2F0BC /* AppDelegate.swift in Sources */,
 				E337097C294CCDDA00D2F0BC /* SceneDelegate.swift in Sources */,
