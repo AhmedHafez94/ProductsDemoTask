@@ -60,8 +60,10 @@ class prodctsListVC: UIViewController {
             switch result {
             case .success(let products):
                 print("products will be pricted \(products)")
-                self.productsArr = products
+                self.productsArr?.append(contentsOf: products)
                 DispatchQueue.main.async {
+//                    self.productsCV.setNeedsLayout()
+                    self.productsCV.layoutIfNeeded()
                     self.productsCV.reloadData()
                 }
             case .failure(let error):
@@ -125,6 +127,20 @@ extension prodctsListVC: UICollectionViewDataSource, UICollectionViewDelegate {
         return cell
     }
     
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.height
+        
+        print("offsetY \(offsetY)")
+        print("contentHeight \(contentHeight)")
+        print("height \(height)")
+        
+        if offsetY > contentHeight - height {
+//            fetchProducts()
+        }
+    }
+    
     
 }
 
@@ -133,7 +149,7 @@ extension prodctsListVC: UICollectionViewDataSource, UICollectionViewDelegate {
 extension prodctsListVC: PinterestLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
         let textHeight = heightForView(text: productsArr?[indexPath.item].productDescription ?? "", font: UIFont.systemFont(ofSize: 10), width: 100)
-        return CGFloat(productsArr?[indexPath.item].image?.height ?? 180.0) + textHeight
+        return (CGFloat(productsArr?[indexPath.item].image?.height ?? 180) + textHeight)
     }
     
     
