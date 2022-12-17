@@ -27,6 +27,7 @@ class ProductCVC: UICollectionViewCell {
     func configure(product: Product) {
         productDescriptionLabel.text = product.productDescription ?? ""
         productPriceLabel.text = "\(product.price ?? 0)"
+        productImageView.downloadImage(from: product.image?.url ?? "")
     }
 
 }

@@ -22,17 +22,27 @@
                                 <collectionViewLayout key="collectionViewLayout" id="E0W-ns-aFf" customClass="PinterestLayout" customModule="ProductsDemoTask" customModuleProvider="target"/>
                                 <cells/>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ev6-LK-Pve">
+                                <rect key="frame" x="187" y="428" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4a4-4Z-dxK"/>
+                                    <constraint firstAttribute="width" constant="40" id="giT-yB-WGz"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pwc-LV-RmI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="NY6-NV-Zd5" firstAttribute="top" secondItem="Pwc-LV-RmI" secondAttribute="top" id="03K-v3-vlP"/>
+                            <constraint firstItem="ev6-LK-Pve" firstAttribute="centerX" secondItem="K0u-uF-VeS" secondAttribute="centerX" id="IX3-15-1Uf"/>
+                            <constraint firstItem="ev6-LK-Pve" firstAttribute="centerY" secondItem="K0u-uF-VeS" secondAttribute="centerY" id="SQA-Lm-8ip"/>
                             <constraint firstItem="NY6-NV-Zd5" firstAttribute="leading" secondItem="Pwc-LV-RmI" secondAttribute="leading" id="fSH-jr-Vm2"/>
                             <constraint firstItem="Pwc-LV-RmI" firstAttribute="trailing" secondItem="NY6-NV-Zd5" secondAttribute="trailing" id="kw0-Vf-Cxx"/>
                             <constraint firstItem="Pwc-LV-RmI" firstAttribute="bottom" secondItem="NY6-NV-Zd5" secondAttribute="bottom" id="lfn-QL-uz0"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="ev6-LK-Pve" id="j4b-3x-PDE"/>
                         <outlet property="productsCV" destination="NY6-NV-Zd5" id="RaK-Ah-2rI"/>
                     </connections>
                 </viewController>

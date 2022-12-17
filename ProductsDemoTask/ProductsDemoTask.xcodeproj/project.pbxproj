@@ -19,6 +19,10 @@
 		E33709A7294CF5E900D2F0BC /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33709A6294CF5E900D2F0BC /* PinterestLayout.swift */; };
 		E33709AB294CF9DC00D2F0BC /* productsJsonData.json in Resources */ = {isa = PBXBuildFile; fileRef = E33709AA294CF9DC00D2F0BC /* productsJsonData.json */; };
 		E33709AF294CFA4100D2F0BC /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33709AE294CFA4100D2F0BC /* Product.swift */; };
+		E342F980294E7A440015264A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E342F97F294E7A440015264A /* NetworkManager.swift */; };
+		E342F984294E7B2F0015264A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E342F983294E7B2F0015264A /* Constants.swift */; };
+		E342F987294E7D3D0015264A /* ErrorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E342F986294E7D3D0015264A /* ErrorTypes.swift */; };
+		E342F98B294E82820015264A /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E342F98A294E82820015264A /* UIImage+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		E33709A6294CF5E900D2F0BC /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		E33709AA294CF9DC00D2F0BC /* productsJsonData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = productsJsonData.json; sourceTree = "<group>"; };
 		E33709AE294CFA4100D2F0BC /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		E342F97F294E7A440015264A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E342F983294E7B2F0015264A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E342F986294E7D3D0015264A /* ErrorTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTypes.swift; sourceTree = "<group>"; };
+		E342F98A294E82820015264A /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,9 @@
 		E3370978294CCDDA00D2F0BC /* ProductsDemoTask */ = {
 			isa = PBXGroup;
 			children = (
+				E342F989294E82620015264A /* Extensions */,
+				E342F97E294E7A200015264A /* Constants */,
+				E342F97D294E7A150015264A /* Managers */,
 				E33709AD294CFA2900D2F0BC /* Models */,
 				E337099A294CF24400D2F0BC /* CustomViews */,
 				E3370979294CCDDA00D2F0BC /* AppDelegate.swift */,
@@ -107,6 +118,31 @@
 				E33709AE294CFA4100D2F0BC /* Product.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E342F97D294E7A150015264A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E342F97F294E7A440015264A /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E342F97E294E7A200015264A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				E342F983294E7B2F0015264A /* Constants.swift */,
+				E342F986294E7D3D0015264A /* ErrorTypes.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		E342F989294E82620015264A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E342F98A294E82820015264A /* UIImage+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,11 +219,15 @@
 			files = (
 				E33709A4294CF55300D2F0BC /* prodctsListVC.swift in Sources */,
 				E3370984294CCDDA00D2F0BC /* ProductsDemoTask.xcdatamodeld in Sources */,
+				E342F987294E7D3D0015264A /* ErrorTypes.swift in Sources */,
 				E33709A7294CF5E900D2F0BC /* PinterestLayout.swift in Sources */,
 				E337099D294CF27500D2F0BC /* ProductCVC.swift in Sources */,
+				E342F980294E7A440015264A /* NetworkManager.swift in Sources */,
 				E337097A294CCDDA00D2F0BC /* AppDelegate.swift in Sources */,
 				E337097C294CCDDA00D2F0BC /* SceneDelegate.swift in Sources */,
 				E33709AF294CFA4100D2F0BC /* Product.swift in Sources */,
+				E342F984294E7B2F0015264A /* Constants.swift in Sources */,
+				E342F98B294E82820015264A /* UIImage+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

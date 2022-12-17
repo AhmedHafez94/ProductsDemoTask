@@ -9,6 +9,7 @@ import UIKit
 
 class prodctsListVC: UIViewController {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var productsCV: UICollectionView!
     
     var productsArr: [Product]? = []
@@ -16,11 +17,13 @@ class prodctsListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProductsCollectionView()
-        if let data = readLocalFile(forName: "productsJsonData") {
-            let productArray = parse(jsonData: data)
-            productsArr = try? data.decoded()
-            print("new test value will be printed \(productsArr)")
-        }
+//        if let data = readLocalFile(forName: "productsJsonData") {
+//            let productArray = parse(jsonData: data)
+//            productsArr = try? data.decoded()
+//            print("new test value will be printed \(productsArr)")
+//        }
+        
+        fetchProducts()
         
         
     }
@@ -34,6 +37,37 @@ class prodctsListVC: UIViewController {
           layout.delegate = self
         }
 
+    }
+    
+    func showActivityIndicator() {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
+    
+    func hideActivityIndicator() {
+        DispatchQueue.main.async {
+            self.activityIndicator.isHidden = true
+        }
+       
+    }
+    
+    
+    func fetchProducts () {
+        showActivityIndicator()
+        NetworkManager.shared.fetchProducts { [weak self] (result) in
+            guard let self = self else { return }
+            self.hideActivityIndicator()
+            switch result {
+            case .success(let products):
+                print("products will be pricted \(products)")
+                self.productsArr = products
+                DispatchQueue.main.async {
+                    self.productsCV.reloadData()
+                }
+            case .failure(let error):
+                print("error happened when \(error.localizedDescription)")
+            }
+        }
     }
     
     private func readLocalFile(forName name: String) -> Data? {
@@ -65,7 +99,16 @@ class prodctsListVC: UIViewController {
         }
     }
     
-  
+    func heightForView(text:String, font:UIFont, width:CGFloat) -> CGFloat {
+        let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.font = font
+        label.text = text
+
+        label.sizeToFit()
+        return label.frame.height
+    }
     
 }
 
@@ -89,7 +132,8 @@ extension prodctsListVC: UICollectionViewDataSource, UICollectionViewDelegate {
 
 extension prodctsListVC: PinterestLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return CGFloat(productsArr?[indexPath.item].image?.height ?? 180.0)
+        let textHeight = heightForView(text: productsArr?[indexPath.item].productDescription ?? "", font: UIFont.systemFont(ofSize: 10), width: 100)
+        return CGFloat(productsArr?[indexPath.item].image?.height ?? 180.0) + textHeight
     }
     
     
