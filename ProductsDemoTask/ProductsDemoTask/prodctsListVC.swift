@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class prodctsListVC: UIViewController {
 
@@ -24,6 +25,7 @@ class prodctsListVC: UIViewController {
 //        }
         
         fetchProducts()
+        
         
         
     }
@@ -62,8 +64,6 @@ class prodctsListVC: UIViewController {
                 print("products will be pricted \(products)")
                 self.productsArr?.append(contentsOf: products)
                 DispatchQueue.main.async {
-//                    self.productsCV.setNeedsLayout()
-//                    self.productsCV.layoutIfNeeded()
                     self.productsCV.reloadData()
                 }
             case .failure(let error):
@@ -112,6 +112,8 @@ class prodctsListVC: UIViewController {
         return label.frame.height
     }
     
+    
+    
 }
 
 //MARK: -> collection view methods
@@ -125,6 +127,12 @@ extension prodctsListVC: UICollectionViewDataSource, UICollectionViewDelegate {
         cell.configure(product: productsArr![indexPath.row])
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        if let product = productsArr?[indexPath.row] {
+//            saveProduct(product: product)
+//        }
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

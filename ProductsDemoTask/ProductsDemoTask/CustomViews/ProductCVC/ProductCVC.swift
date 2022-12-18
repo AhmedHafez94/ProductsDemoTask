@@ -15,6 +15,7 @@ class ProductCVC: UICollectionViewCell {
     @IBOutlet weak var productPriceLabel: UILabel!
     
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

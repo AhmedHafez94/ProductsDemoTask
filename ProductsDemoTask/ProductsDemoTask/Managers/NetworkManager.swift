@@ -43,6 +43,7 @@ class NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 let products = try decoder.decode([Product].self, from: data)
+                DBManager.shared.saveProducts(products: products)
                 completion(.success(products))
             } catch {
                 completion(.failure(.unabletToComplete))

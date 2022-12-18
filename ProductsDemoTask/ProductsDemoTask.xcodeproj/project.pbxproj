@@ -23,6 +23,9 @@
 		E342F984294E7B2F0015264A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E342F983294E7B2F0015264A /* Constants.swift */; };
 		E342F987294E7D3D0015264A /* ErrorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E342F986294E7D3D0015264A /* ErrorTypes.swift */; };
 		E342F98B294E82820015264A /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E342F98A294E82820015264A /* UIImage+Ext.swift */; };
+		E342F98F294EA2FA0015264A /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E342F98E294EA2FA0015264A /* DBManager.swift */; };
+		E342F993294EA6A90015264A /* Products.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E342F991294EA6A90015264A /* Products.xcdatamodeld */; };
+		E342F99F294EB7A10015264A /* Codable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E342F99E294EB7A10015264A /* Codable+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		E342F983294E7B2F0015264A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E342F986294E7D3D0015264A /* ErrorTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTypes.swift; sourceTree = "<group>"; };
 		E342F98A294E82820015264A /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		E342F98E294EA2FA0015264A /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		E342F992294EA6A90015264A /* Products.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Products.xcdatamodel; sourceTree = "<group>"; };
+		E342F99E294EB7A10015264A /* Codable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,7 @@
 				E33709AA294CF9DC00D2F0BC /* productsJsonData.json */,
 				E33709A3294CF55300D2F0BC /* prodctsListVC.swift */,
 				E33709A6294CF5E900D2F0BC /* PinterestLayout.swift */,
+				E342F991294EA6A90015264A /* Products.xcdatamodeld */,
 			);
 			path = ProductsDemoTask;
 			sourceTree = "<group>";
@@ -124,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				E342F97F294E7A440015264A /* NetworkManager.swift */,
+				E342F98E294EA2FA0015264A /* DBManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -141,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				E342F98A294E82820015264A /* UIImage+Ext.swift */,
+				E342F99E294EB7A10015264A /* Codable+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -217,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E342F99F294EB7A10015264A /* Codable+Ext.swift in Sources */,
 				E33709A4294CF55300D2F0BC /* prodctsListVC.swift in Sources */,
 				E3370984294CCDDA00D2F0BC /* ProductsDemoTask.xcdatamodeld in Sources */,
 				E342F987294E7D3D0015264A /* ErrorTypes.swift in Sources */,
@@ -224,9 +234,11 @@
 				E337099D294CF27500D2F0BC /* ProductCVC.swift in Sources */,
 				E342F980294E7A440015264A /* NetworkManager.swift in Sources */,
 				E337097A294CCDDA00D2F0BC /* AppDelegate.swift in Sources */,
+				E342F98F294EA2FA0015264A /* DBManager.swift in Sources */,
 				E337097C294CCDDA00D2F0BC /* SceneDelegate.swift in Sources */,
 				E33709AF294CFA4100D2F0BC /* Product.swift in Sources */,
 				E342F984294E7B2F0015264A /* Constants.swift in Sources */,
+				E342F993294EA6A90015264A /* Products.xcdatamodeld in Sources */,
 				E342F98B294E82820015264A /* UIImage+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +450,16 @@
 			);
 			currentVersion = E3370983294CCDDA00D2F0BC /* ProductsDemoTask.xcdatamodel */;
 			path = ProductsDemoTask.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		E342F991294EA6A90015264A /* Products.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E342F992294EA6A90015264A /* Products.xcdatamodel */,
+			);
+			currentVersion = E342F992294EA6A90015264A /* Products.xcdatamodel */;
+			path = Products.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
