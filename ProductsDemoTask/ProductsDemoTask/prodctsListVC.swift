@@ -63,7 +63,7 @@ class prodctsListVC: UIViewController {
                 self.productsArr?.append(contentsOf: products)
                 DispatchQueue.main.async {
 //                    self.productsCV.setNeedsLayout()
-                    self.productsCV.layoutIfNeeded()
+//                    self.productsCV.layoutIfNeeded()
                     self.productsCV.reloadData()
                 }
             case .failure(let error):
@@ -137,7 +137,7 @@ extension prodctsListVC: UICollectionViewDataSource, UICollectionViewDelegate {
         print("height \(height)")
         
         if offsetY > contentHeight - height {
-//            fetchProducts()
+            fetchProducts()
         }
     }
     
