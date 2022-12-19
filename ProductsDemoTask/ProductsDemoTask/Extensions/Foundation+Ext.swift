@@ -16,6 +16,12 @@ extension Encodable {
     
 }
 
+extension Data {
+    func decoded<T: Decodable>() throws -> T {
+        return try JSONDecoder().decode(T.self, from: self)
+    }
+}
+
 func instantiate<T: Decodable>(jsonString: String) -> T? {
     return try? JSONDecoder().decode(T.self, from: jsonString.data(using: .utf8)!)
 }

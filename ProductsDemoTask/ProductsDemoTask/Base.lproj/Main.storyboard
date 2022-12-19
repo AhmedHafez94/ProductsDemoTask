@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RVd-ZY-bJv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E78-Pa-cod">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NY6-NV-Zd5">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewLayout key="collectionViewLayout" id="E0W-ns-aFf" customClass="PinterestLayout" customModule="ProductsDemoTask" customModuleProvider="target"/>
                                 <cells/>
@@ -41,6 +41,7 @@
                             <constraint firstItem="Pwc-LV-RmI" firstAttribute="bottom" secondItem="NY6-NV-Zd5" secondAttribute="bottom" id="lfn-QL-uz0"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="mXH-c8-KVY"/>
                     <connections>
                         <outlet property="activityIndicator" destination="ev6-LK-Pve" id="j4b-3x-PDE"/>
                         <outlet property="productsCV" destination="NY6-NV-Zd5" id="RaK-Ah-2rI"/>
@@ -48,7 +49,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5TG-iz-GLF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="941" y="121"/>
+            <point key="canvasLocation" x="1850.7246376811595" y="120.53571428571428"/>
         </scene>
         <!--Product DescriptionVC-->
         <scene sceneID="8jB-dU-C13">
@@ -190,7 +191,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kqD-U6-Cud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2102.898550724638" y="120.53571428571428"/>
+            <point key="canvasLocation" x="3013.04347826087" y="120.53571428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ttn-dG-l43">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E78-Pa-cod" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K1G-LW-60O">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RVd-ZY-bJv" kind="relationship" relationship="rootViewController" id="zjC-O7-vva"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eJL-Gn-Bdv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="940.57971014492762" y="120.53571428571428"/>
         </scene>
     </scenes>
     <resources>

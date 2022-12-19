@@ -18,6 +18,7 @@ class prodctsListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Products list"
         setupProductsCollectionView()
 //        if let data = readLocalFile(forName: "productsJsonData") {
 //            let productArray = parse(jsonData: data)
@@ -175,7 +176,6 @@ extension prodctsListVC: PinterestLayoutDelegate {
 
 extension prodctsListVC: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//            transition.originFrame = productsCV.frame
             transition.presenting = true
             return transition
         }
