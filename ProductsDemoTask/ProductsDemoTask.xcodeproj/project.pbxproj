@@ -86,6 +86,8 @@
 		E3370978294CCDDA00D2F0BC /* ProductsDemoTask */ = {
 			isa = PBXGroup;
 			children = (
+				E3FFC28C29504F7100E46A69 /* ViewControllers */,
+				E3FFC28B29504F5800E46A69 /* Views */,
 				E3FFC28329502E6300E46A69 /* Transitions */,
 				E342F989294E82620015264A /* Extensions */,
 				E342F97E294E7A200015264A /* Constants */,
@@ -93,17 +95,14 @@
 				E33709AD294CFA2900D2F0BC /* Models */,
 				E337099A294CF24400D2F0BC /* CustomViews */,
 				E3370979294CCDDA00D2F0BC /* AppDelegate.swift */,
+				E3FFC28D29504F9300E46A69 /* App */,
 				E337097B294CCDDA00D2F0BC /* SceneDelegate.swift */,
-				E337097F294CCDDA00D2F0BC /* Main.storyboard */,
 				E3370985294CCDDB00D2F0BC /* Assets.xcassets */,
-				E3370987294CCDDB00D2F0BC /* LaunchScreen.storyboard */,
 				E337098A294CCDDB00D2F0BC /* Info.plist */,
 				E3370982294CCDDA00D2F0BC /* ProductsDemoTask.xcdatamodeld */,
 				E33709AA294CF9DC00D2F0BC /* productsJsonData.json */,
-				E33709A3294CF55300D2F0BC /* prodctsListVC.swift */,
 				E33709A6294CF5E900D2F0BC /* PinterestLayout.swift */,
 				E342F991294EA6A90015264A /* Products.xcdatamodeld */,
-				E3FFC28029502BE100E46A69 /* ProductDescriptionVC.swift */,
 			);
 			path = ProductsDemoTask;
 			sourceTree = "<group>";
@@ -166,6 +165,31 @@
 				E3FFC2862950327500E46A69 /* StretchAnimator.swift */,
 			);
 			path = Transitions;
+			sourceTree = "<group>";
+		};
+		E3FFC28B29504F5800E46A69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E337097F294CCDDA00D2F0BC /* Main.storyboard */,
+				E3370987294CCDDB00D2F0BC /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E3FFC28C29504F7100E46A69 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E33709A3294CF55300D2F0BC /* prodctsListVC.swift */,
+				E3FFC28029502BE100E46A69 /* ProductDescriptionVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E3FFC28D29504F9300E46A69 /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

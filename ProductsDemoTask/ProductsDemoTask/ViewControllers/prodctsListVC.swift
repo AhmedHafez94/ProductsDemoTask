@@ -10,10 +10,14 @@ import CoreData
 
 class prodctsListVC: UIViewController {
 
+    @IBOutlet weak var noDataView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var productsCV: UICollectionView!
     
-    var productsArr: [Product]? = []
+    var serverProductsArr: [Product]? = []
+    var localProductsArr: [Product]? = []
+    var displayedProductsArr: [Product]? = []
+    
     let transition = StretchAnimator()
     var firstFetch = true
     
@@ -65,13 +69,23 @@ class prodctsListVC: UIViewController {
             switch result {
             case .success(let products):
                 print("products will be pricted \(products)")
+                self.firstFetch = true
 
-                self.productsArr?.append(contentsOf: products)
+                self.serverProductsArr?.append(contentsOf: products)
+                self.displayedProductsArr = self.serverProductsArr
                 DispatchQueue.main.async {
                     self.productsCV.reloadData()
                 }
             case .failure(let error):
                 print("error happened when \(error.localizedDescription)")
+                if self.firstFetch == true {
+                    self.firstFetch = false
+                    var localProducts = DBManager.shared.fetchLocalProducts()
+                    self.displayedProductsArr = localProducts
+                    DispatchQueue.main.async {
+                        self.productsCV.reloadData()
+                    }
+                }
             }
         }
     }
@@ -130,18 +144,27 @@ class prodctsListVC: UIViewController {
 //MARK: -> collection view methods
 extension prodctsListVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return productsArr?.count ?? 0
+        switch displayedProductsArr?.count ?? 0 {
+        case 0:
+            print("displayed products arr count is zero")
+            noDataView.isHidden = false
+            return 0
+        default:
+            noDataView.isHidden = true
+            return displayedProductsArr?.count ?? 0
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCVC", for: indexPath) as! ProductCVC
-        cell.configure(product: productsArr![indexPath.row])
+        cell.configure(product: displayedProductsArr![indexPath.row])
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let product = productsArr?[indexPath.row] {
+        if let product = displayedProductsArr?[indexPath.row] {
             goToProductDetails(product: product)
         }
     }
@@ -167,8 +190,8 @@ extension prodctsListVC: UICollectionViewDataSource, UICollectionViewDelegate {
 
 extension prodctsListVC: PinterestLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        let textHeight = heightForView(text: productsArr?[indexPath.item].productDescription ?? "", font: UIFont.systemFont(ofSize: 10), width: 100)
-        return (CGFloat(productsArr?[indexPath.item].image?.height ?? 180) + textHeight)
+        let textHeight = heightForView(text: displayedProductsArr?[indexPath.item].productDescription ?? "", font: UIFont.systemFont(ofSize: 10), width: 100)
+        return (CGFloat(displayedProductsArr?[indexPath.item].image?.height ?? 180) + textHeight)
     }
     
     
