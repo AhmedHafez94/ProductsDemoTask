@@ -14,6 +14,7 @@ class prodctsListVC: UIViewController {
     @IBOutlet weak var productsCV: UICollectionView!
     
     var productsArr: [Product]? = []
+    let transition = StretchAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,7 +113,14 @@ class prodctsListVC: UIViewController {
         return label.frame.height
     }
     
-    
+    func goToProductDetails(product: Product) {
+        let SB = UIStoryboard(name: "Main", bundle: nil)
+        let destVC = SB.instantiateViewController(identifier: "ProductDescriptionVC") as! ProductDescriptionVC
+        destVC.product = product
+        destVC.transitioningDelegate = self
+        destVC.modalPresentationStyle = .fullScreen
+        self.present(destVC, animated: true, completion: nil)
+    }
     
 }
 
@@ -130,9 +138,9 @@ extension prodctsListVC: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if let product = productsArr?[indexPath.row] {
-//            saveProduct(product: product)
-//        }
+        if let product = productsArr?[indexPath.row] {
+            goToProductDetails(product: product)
+        }
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -163,9 +171,19 @@ extension prodctsListVC: PinterestLayoutDelegate {
     
 }
 
+//MARK: -> UIViewControllerTransitioningDelegate
 
-extension Data {
-    func decoded<T: Decodable>() throws -> T {
-        return try JSONDecoder().decode(T.self, from: self)
-    }
+extension prodctsListVC: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//            transition.originFrame = productsCV.frame
+            transition.presenting = true
+            return transition
+        }
+        
+        func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            transition.presenting = false
+            return transition
+        }
 }
+
+
