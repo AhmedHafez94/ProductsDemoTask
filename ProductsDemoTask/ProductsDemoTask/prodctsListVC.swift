@@ -15,6 +15,7 @@ class prodctsListVC: UIViewController {
     
     var productsArr: [Product]? = []
     let transition = StretchAnimator()
+    var firstFetch = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,12 +59,13 @@ class prodctsListVC: UIViewController {
     
     func fetchProducts () {
         showActivityIndicator()
-        NetworkManager.shared.fetchProducts { [weak self] (result) in
+        NetworkManager.shared.fetchProducts(firstFetch: self.firstFetch) { [weak self] (result) in
             guard let self = self else { return }
             self.hideActivityIndicator()
             switch result {
             case .success(let products):
                 print("products will be pricted \(products)")
+
                 self.productsArr?.append(contentsOf: products)
                 DispatchQueue.main.async {
                     self.productsCV.reloadData()
@@ -176,14 +178,15 @@ extension prodctsListVC: PinterestLayoutDelegate {
 
 extension prodctsListVC: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-            transition.presenting = true
-            return transition
-        }
-        
-        func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-            transition.presenting = false
-            return transition
-        }
+        transition.originFrame = activityIndicator.frame
+        transition.presenting = true
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.presenting = false
+        return transition
+    }
 }
 
 

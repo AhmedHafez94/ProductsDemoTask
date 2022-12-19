@@ -15,7 +15,7 @@ class NetworkManager {
     
    private init() { }
     
-    func fetchProducts(completion: @escaping (Result<[Product], NetworkError>) -> Void) {
+    func fetchProducts(firstFetch: Bool, completion: @escaping (Result<[Product], NetworkError>) -> Void) {
         
         let endPoint = Constants.baseUrl
         guard let url = URL(string: endPoint) else {
@@ -43,8 +43,11 @@ class NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 let products = try decoder.decode([Product].self, from: data)
-                DBManager.shared.saveProducts(products: products)
                 completion(.success(products))
+                if firstFetch == true {
+//                    DBManager
+                }
+                DBManager.shared.saveProducts(products: products)
             } catch {
                 completion(.failure(.unabletToComplete))
             }

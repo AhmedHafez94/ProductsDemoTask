@@ -34,7 +34,8 @@ class DBManager {
     
     func saveProducts(products: [Product]) {
         for product in products {
-            saveProduct(product: product)
+//            saveProduct(product: product)
+            insertOrUpdate(product: product)
         }
     }
     
@@ -58,6 +59,53 @@ class DBManager {
         }
         
         return productsArr
+    }
+    
+    
+    func deleteAllData(entity: String) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Products")
+        fetchRequest.returnsObjectsAsFaults = false
+
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for managedObject in results {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                managedContext.delete(managedObjectData)
+            }
+            print("success delete all saved data")
+        } catch let error as NSError {
+            print("Detele all data in \(entity) error : \(error) \(error.userInfo)")
+        }
+    }
+    
+    func insertOrUpdate(product: Product) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Products")
+        fetchRequest.predicate = NSPredicate(format: "id == \(product.id ?? 0)")
+
+        do {
+            let results = try managedContext.fetch(fetchRequest) as? [NSManagedObject]
+            if results?.isEmpty == false {
+                //update
+                if let element = results?[0] {
+                    element.setValue("\(product.toJSONString())", forKey: "product")
+                    print("product updated successfully")
+                } else {
+                    print("product element value is nil")
+                }
+               
+                
+            } else {
+                // insert new product
+                saveProduct(product: product)
+            }
+        } catch {
+            print("error in save or update func \(error.localizedDescription)")
+        }
     }
     
 }
