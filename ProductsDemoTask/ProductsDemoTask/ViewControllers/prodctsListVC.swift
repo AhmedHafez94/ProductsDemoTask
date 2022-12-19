@@ -69,7 +69,9 @@ class prodctsListVC: UIViewController {
             switch result {
             case .success(let products):
                 print("products will be pricted \(products)")
-                self.firstFetch = true
+                if self.firstFetch == true {
+                    self.firstFetch = false
+                }
 
                 self.serverProductsArr?.append(contentsOf: products)
                 self.displayedProductsArr = self.serverProductsArr
@@ -147,7 +149,10 @@ extension prodctsListVC: UICollectionViewDataSource, UICollectionViewDelegate {
         switch displayedProductsArr?.count ?? 0 {
         case 0:
             print("displayed products arr count is zero")
-            noDataView.isHidden = false
+            if firstFetch == false {
+                noDataView.isHidden = false
+            }
+            
             return 0
         default:
             noDataView.isHidden = true

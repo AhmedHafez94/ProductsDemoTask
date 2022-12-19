@@ -54,6 +54,7 @@
 		E342F99E294EB7A10015264A /* Foundation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Ext.swift"; sourceTree = "<group>"; };
 		E3FFC28029502BE100E46A69 /* ProductDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionVC.swift; sourceTree = "<group>"; };
 		E3FFC2862950327500E46A69 /* StretchAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchAnimator.swift; sourceTree = "<group>"; };
+		E3FFC290295058BA00E46A69 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,14 +96,15 @@
 				E33709AD294CFA2900D2F0BC /* Models */,
 				E337099A294CF24400D2F0BC /* CustomViews */,
 				E3370979294CCDDA00D2F0BC /* AppDelegate.swift */,
-				E3FFC28D29504F9300E46A69 /* App */,
 				E337097B294CCDDA00D2F0BC /* SceneDelegate.swift */,
+				E3FFC28D29504F9300E46A69 /* App */,
 				E3370985294CCDDB00D2F0BC /* Assets.xcassets */,
 				E337098A294CCDDB00D2F0BC /* Info.plist */,
 				E3370982294CCDDA00D2F0BC /* ProductsDemoTask.xcdatamodeld */,
 				E33709AA294CF9DC00D2F0BC /* productsJsonData.json */,
 				E33709A6294CF5E900D2F0BC /* PinterestLayout.swift */,
 				E342F991294EA6A90015264A /* Products.xcdatamodeld */,
+				E3FFC290295058BA00E46A69 /* README.md */,
 			);
 			path = ProductsDemoTask;
 			sourceTree = "<group>";
